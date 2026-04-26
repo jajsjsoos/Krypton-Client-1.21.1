@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KryptonClient – 1.21.1</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --red: #e03030;
+      --red-light: #ff4444;
+      --bg: #0a0a0a;
+      --card-bg: #130808;
+      --card-border: #2a1010;
+    }
+    body { background: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; min-height: 100vh; overflow-x: hidden; }
+
+    canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+
+    .banner { position: relative; z-index: 2; background: var(--red); display: flex; align-items: center; justify-content: center; gap: 16px; padding: 10px 16px; font-size: 14px; font-weight: 500; text-align: center; flex-wrap: wrap; }
+
+    nav { position: relative; z-index: 2; display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: #111; border-bottom: 1px solid #222; }
+    .brand { font-size: 20px; font-weight: 800; margin-right: auto; letter-spacing: -0.5px; }
+    .brand span { color: var(--red); }
+    .nav-btn { background: #1e1e1e; border: 1px solid #333; color: #fff; padding: 8px 16px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .nav-btn.download { background: var(--red); border-color: var(--red); }
+
+    .hero { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 80px 24px 60px; min-height: 70vh; justify-content: center; }
+    .badge { display: inline-flex; align-items: center; background: rgba(224,48,48,0.15); border: 1px solid rgba(224,48,48,0.4); color: var(--red-light); padding: 6px 16px; border-radius: 999px; font-size: 13px; font-weight: 600; margin-bottom: 32px; }
+    h1 { font-size: clamp(34px, 8vw, 60px); font-weight: 900; line-height: 1.1; letter-spacing: -1px; max-width: 700px; }
+    h1 .accent { color: var(--red); }
+    .sub { margin-top: 24px; color: #888; font-size: 16px; line-height: 1.6; max-width: 480px; }
+    .version-tag { display: inline-block; margin-top: 16px; background: #1a1a1a; border: 1px solid #333; color: #aaa; font-size: 13px; font-weight: 600; padding: 5px 14px; border-radius: 8px; letter-spacing: 0.5px; }
+
+    .stats { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); margin: 0 20px 60px; border: 1px solid #2a2a2a; border-radius: 14px; overflow: hidden; background: rgba(255,255,255,0.02); }
+    .stat { padding: 28px 20px; text-align: center; border-right: 1px solid #2a2a2a; }
+    .stat:last-child { border-right: none; }
+    .stat-num { font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: var(--red); letter-spacing: -1px; }
+    .stat-label { font-size: 11px; font-weight: 700; color: #666; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 6px; line-height: 1.4; }
+
+    .modules-section { position: relative; z-index: 1; padding: 0 20px 80px; max-width: 760px; margin: 0 auto; }
+    .section-label { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--red); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid #2a1010; }
+    .module-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; margin-bottom: 16px; }
+    .module-tag { display: inline-block; background: rgba(224,48,48,0.18); border: 1px solid rgba(224,48,48,0.45); color: var(--red-light); font-size: 10px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 14px; }
+    .module-name { font-size: 22px; font-weight: 800; margin-bottom: 10px; letter-spacing: -0.3px; }
+    .module-desc { color: #8a8a8a; font-size: 15px; line-height: 1.6; }
+
+    @media (max-width: 500px) {
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .stat:nth-child(2) { border-right: none; }
+      .stat:nth-child(3) { border-right: 1px solid #2a2a2a; border-top: 1px solid #2a2a2a; }
+      .stat:nth-child(4) { border-top: 1px solid #2a2a2a; }
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<div class="banner">Krypton Client is now 100% FREE – No cost, no paywalls. Forever.</div>
+
+<nav>
+  <div class="brand">Krypton<span>Client</span></div>
+  <a href="https://www.tiktok.com/@fwjon.2" target="_blank" class="nav-btn">TikTok</a>
+  <a href="https://www.mediafire.com/file/kbk2rvm8ptazkfr/KryptonClient-1.21.1.jar/file" target="_blank" class="nav-btn download">Download</a>
+</nav>
+
+<section class="hero">
+  <div class="badge">* Now free forever</div>
+  <h1>Krypton Client is Now Free<br><span class="accent">65+ Modules</span> for Donut SMP</h1>
+  <p class="sub">Every module is unlocked – no cost, no paywalls, forever.</p>
+  <div class="version-tag">Minecraft 1.21.1</div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-num">65+</div><div class="stat-label">Total<br>Features</div></div>
+  <div class="stat"><div class="stat-num">43</div><div class="stat-label">Automation</div></div>
+  <div class="stat"><div class="stat-num">14</div><div class="stat-label">ESP &<br>Visual</div></div>
+  <div class="stat"><div class="stat-num">8</div><div class="stat-label">Combat</div></div>
+</div>
+
+<div class="modules-section">
+  <div class="section-label">Automation</div>
+
+  <div class="module-card">
+    <div class="module-tag">Automation</div>
+    <div class="module-name">ChunkFinder</div>
+    <div class="module-desc">Scans and identifies high-value chunks for efficient base scouting and resource targeting.</div>
+  </div>
+
+  <div class="module-card">
+    <div class="module-tag">Automation</div>
+    <div class="module-name">Sus Chunk Finder</div>
+    <div class="module-desc">Detects suspicious chunk activity and anomalous generation patterns that indicate hidden player structures or stashes.</div>
+  </div>
+
+  <div class="module-card">
+    <div class="module-tag">Automation</div>
+    <div class="module-name">Crystal Macros</div>
+    <div class="module-desc">Automated end crystal placement and detonation sequences with millisecond-precise timing.</div>
+  </div>
+
+  <div class="module-card">
+    <div class="module-tag">Automation</div>
+    <div class="module-name">Base Finder</div>
+    <div class="module-desc">Detects hidden player bases using chunk analysis and unusual block activity patterns.</div>
+  </div>
+
+  <div class="module-card">
+    <div class="module-tag">Automation</div>
+    <div class="module-name">Auto Totem</div>
+    <div class="module-desc">Equips a Totem of Undying automatically when your off-hand slot is empty or health drops critically low.</div>
+  </div>
+
+  <div class="module-card">
+    <div class="module-tag">Automation</div>
+    <div class="module-name">LarpDebugV6</div>
+    <div class="module-desc">Advanced debug utility for tracking server-side entity states, packet timings, and live session diagnostics in real time.</div>
+  </div>
+
+</div>
+
+<script>
+  const canvas = document.getElementById('c');
+  const ctx = canvas.getContext('2d');
+  let W, H, pts;
+  function init() {
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+    pts = Array.from({ length: Math.floor((W*H)/12000) }, () => ({
+      x: Math.random()*W, y: Math.random()*H,
+      vx: (Math.random()-.5)*.4, vy: (Math.random()-.5)*.4
+    }));
+  }
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    for (const p of pts) {
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1;
+      if(p.y<0||p.y>H) p.vy*=-1;
+    }
+    for (let i=0;i<pts.length;i++) for (let j=i+1;j<pts.length;j++) {
+      const dx=pts[i].x-pts[j].x, dy=pts[i].y-pts[j].y, d=Math.sqrt(dx*dx+dy*dy);
+      if(d<140){ ctx.beginPath(); ctx.moveTo(pts[i].x,pts[i].y); ctx.lineTo(pts[j].x,pts[j].y); ctx.strokeStyle=`rgba(200,30,30,${.18*(1-d/140)})`; ctx.lineWidth=.8; ctx.stroke(); }
+    }
+    for (const p of pts) { ctx.beginPath(); ctx.arc(p.x,p.y,2,0,Math.PI*2); ctx.fillStyle='rgba(200,30,30,0.55)'; ctx.fill(); }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize', init);
+  init(); draw();
+</script>
+</body>
+</html>
